@@ -122,3 +122,59 @@ button { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+.landing { min-height: 100dvh; display: flex; flex-direction: column; }
+.landing-nav { height: 76px; padding: 0 48px; display: flex; align-items: center; }
+.landing-hero { width: min(100% - 48px, 820px); margin: auto; padding: 24px 0 72px; }
+.landing-hero h1 { margin: 0; font-size: clamp(42px, 6vw, 68px); letter-spacing: -2.4px; line-height: 1.05; }
+.landing-copy { max-width: 620px; margin: 16px 0 28px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+.google-button { display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 18px; border: 1px solid #dadce0; border-radius: 12px; background: white; color: #1f1f1f; font-size: 15px; font-weight: 600; cursor: pointer; box-shadow: 0 1px 2px #0000000d; }
+.google-button:hover { background: #f8f9fa; }
+.google-button:disabled { cursor: wait; opacity: .7; }
+.google-button svg { width: 18px; height: 18px; }
+.landing-error { margin: 14px 0 0; color: #c13515; font-size: 13px; }
+.feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 42px; }
+.feature-card { min-height: 148px; padding: 18px; border: 1px solid var(--hairline); border-radius: 14px; }
+.feature-card h2 { margin: 0 0 8px; font-size: 15px; letter-spacing: -.3px; }
+.feature-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+
+.chat-shell { min-height: 100dvh; display: flex; }
+.sidebar { width: 292px; flex: none; display: flex; flex-direction: column; border-right: 1px solid var(--hairline); background: #fafafa; }
+.sidebar-head { padding: 18px 16px 12px; display: flex; flex-direction: column; gap: 14px; }
+.sidebar .brand { font-size: 18px; }
+.conversation-list { flex: 1; overflow: auto; padding: 4px 10px 12px; }
+.empty-list { margin: 12px 8px; color: #999; font-size: 12px; }
+.conversation-item { width: 100%; display: flex; flex-direction: column; align-items: flex-start; gap: 3px; margin-bottom: 4px; padding: 10px 12px; border: 0; border-radius: 10px; background: transparent; text-align: left; cursor: pointer; }
+.conversation-item span { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; font-weight: 500; }
+.conversation-item time, .message-content time { color: #999; font-size: 11px; }
+.conversation-item.is-active, .conversation-item:hover { background: white; }
+.profile { display: grid; grid-template-columns: 36px 1fr auto; gap: 10px; align-items: center; margin: 8px; padding: 10px; border-top: 1px solid var(--hairline); }
+.profile img, .profile-fallback { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+.profile-fallback { display: grid; place-items: center; background: var(--primary); color: white; font-weight: 700; }
+.profile strong, .profile small { display: block; max-width: 128px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.profile strong { font-size: 13px; }
+.profile small { color: #888; font-size: 11px; }
+.profile button { border: 0; background: transparent; color: var(--muted); font-size: 12px; cursor: pointer; }
+.profile button:hover { color: var(--primary); }
+.chat-main { min-width: 0; flex: 1; display: flex; flex-direction: column; }
+.chat-main .topbar { height: 64px; padding: 0 22px; border-bottom: 0; }
+.menu-button { display: none; width: 36px; height: 36px; border: 0; background: transparent; cursor: pointer; }
+.menu-button svg, .sidebar-backdrop { fill: none; }
+.menu-button svg { width: 18px; height: 18px; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; }
+.chat-main .suggestions { grid-template-columns: 1fr; }
+.chat-main .suggestion-card { min-height: 0; }
+.sources { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 8px; }
+.sources span { color: #999; font-size: 11px; }
+.sources em { padding: 3px 8px; border-radius: 999px; background: #fff0f2; color: #9d2340; font-size: 11px; font-style: normal; }
+.sidebar-backdrop { display: none; }
+
+@media (max-width: 860px) {
+  .landing-nav, .landing-hero { padding-left: 20px; padding-right: 20px; }
+  .landing-hero { width: 100%; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .sidebar { position: fixed; z-index: 20; inset: 0 auto 0 0; transform: translateX(-105%); transition: transform .18s ease; }
+  .sidebar.is-open { transform: none; }
+  .sidebar-backdrop { position: fixed; z-index: 10; inset: 0; display: block; border: 0; background: #00000033; }
+  .menu-button { display: grid; place-items: center; }
+  .chat-main .topbar { justify-content: space-between; }
+}

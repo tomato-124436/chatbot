@@ -2,15 +2,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Morrow — AI 어시스턴트",
-  description: "무엇이든 편하게 물어보세요. Morrow가 함께 생각해 드릴게요.",
+  title: "모두의 AI",
+  description: "문서에 근거해 답하고, 대화는 계정에 저장되는 AI 챗봇입니다.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko">
       <body>{children}</body>
